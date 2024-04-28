@@ -5,7 +5,10 @@
 
 $mintBlue: #88b2cc;
 .app {
+	display: flex;
+	justify-content: center;
 	.container {
+		width: 1024px;
 		//Login & Register
 		.auth {
 			display: flex;
@@ -50,6 +53,21 @@ $mintBlue: #88b2cc;
 					text-align: center;
 				}
 			}
+		}
+	}
+}
+
+//Navbar
+
+.navbar {
+	.container {
+		padding: 10px 0;
+		display: flex;
+		justify-content: space-between;
+		.logo {
+            
+		}
+		.links {
 		}
 	}
 }
