@@ -1,7 +1,10 @@
-
+import Logo from "../img/logo.png"
 const Footer = () => {
     return (
-        <div>Footer</div>
+        <footer>
+            <img src={Logo} alt="" />
+            <span>Made with 💕 and React.js</span>
+        </footer>
     )
 }
 
