@@ -64,10 +64,37 @@ $mintBlue: #88b2cc;
 		padding: 10px 0;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		.logo {
-            
+			img {
+				width: 120px;
+			}
 		}
 		.links {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			.link {
+				text-decoration: none;
+				color: inherit;
+				h6 {
+					font-weight: 300;
+					font-size: 16px;
+				}
+			}
+			span {
+				cursor: pointer;
+			}
+			.write {
+				background-color: $mintBlue;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-weight: 300;
+			}
 		}
 	}
 }
