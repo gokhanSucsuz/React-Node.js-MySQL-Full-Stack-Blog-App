@@ -1,9 +1,9 @@
 import { db } from "../db.js";
-import bcrypt from "bcryptjs";
+import bcrypt from "bcrypt";
 
 export const register = (req, res) => {
 	//Check existing user
-	const q = "select * from users where email = ? or username= ?";
+	const q = "select * from users where email = ? or username = ?";
 
 	db.query(q, [req.body.email, req.body.username], (err, data) => {
 		if (err) return res.json(err);
@@ -25,7 +25,23 @@ export const register = (req, res) => {
 };
 
 export const login = (req, res) => {
-	res.json("login");
+	//Check user
+
+	const q = "select * from users where username = ?";
+	db.query(q, [req.body.username], (err, data) => {
+		if (err) return res.json(err);
+		if (data.length === 0) return res.status(404).json("User not found!");
+
+		//Check password
+
+		const isPasswordCorrect = bcrypt.compareSync(
+			req.body.password,
+			data[0].password
+		);
+
+		if (!isPasswordCorrect)
+			return res.status(400).json("Wrong username or password!");
+	});
 };
 
 export const logout = (req, res) => {
