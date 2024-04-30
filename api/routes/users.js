@@ -1,9 +1,8 @@
 import express from "express";
+import { addUser } from "../controllers/user.js";
 
-const routes = express.Router();
+const router = express.Router();
 
-routes.get("/userTest", (req, res) => {
-	res.json("UserTest works");
-});
+router.get("/userTest", addUser);
 
-export default routes;
+export default router;
