@@ -13,7 +13,7 @@ const Single = () => {
   const { currentUser } = useContext(AuthContext)
   const location = useLocation();
   const postId = location.pathname.split("/")[2]
-
+  console.log(postId)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -46,7 +46,7 @@ const Single = () => {
             <p>Posted {moment(post?.date).fromNow()}</p>
           </div>
           {currentUser?.username === post?.username && (<div className="edit">
-            <Link to={`/write?edit=2`}>
+            <Link to={`/write?edit=2`} state={post}>
               <img src={Edit} alt="" />
             </Link>
             <img onClick={handleDelete} src={Delete} alt="" />

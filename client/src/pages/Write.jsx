@@ -7,8 +7,8 @@ import moment from "moment";
 
 const Write = () => {
   const state = useLocation().state;
-  const [value, setValue] = useState(state?.title || "");
-  const [title, setTitle] = useState(state?.desc || "");
+  const [value, setValue] = useState(state?.desc || "");
+  const [title, setTitle] = useState(state?.title || "");
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState(state?.cat || "");
 
@@ -18,7 +18,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("/client/public/uploads", formData);
+      const res = await axios.post("http://localhost:8080/api/uploads", formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -30,6 +30,7 @@ const Write = () => {
     const imgUrl = await upload();
 
     try {
+      console.log(state)
       state
         ? await axios.put(`http://localhost:8080/api/posts/${state.id}`, {
           title,
@@ -56,6 +57,7 @@ const Write = () => {
         <input
           type="text"
           placeholder="Title"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <div className="editorContainer">
