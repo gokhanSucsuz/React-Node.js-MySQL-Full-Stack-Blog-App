@@ -35,8 +35,6 @@ const Single = () => {
     }
   }
 
-  console.log("currentUser: ", currentUser?.username, "postUser: ", post?.username)
-
   return (
     <div className="single">
       <div className="content">
