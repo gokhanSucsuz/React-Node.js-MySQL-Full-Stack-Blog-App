@@ -18,7 +18,7 @@ const Single = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`http://localhost:8080/api/posts/${postId}`)
-        setPost(res.data[0])
+        setPost(res.data)
       } catch (error) {
         console.log(error)
       }
@@ -38,12 +38,12 @@ const Single = () => {
   return (
     <div className="single">
       <div className="content">
-        <img src={post?.postImg} alt="" />
+        <img src={post?.img} alt="" />
         <div className="user">
           <img src={post?.img} alt="" />
           <div className="info">
             <span>{post?.username}</span>
-            <p>Posted {moment(post.date).fromNow()}</p>
+            <p>Posted {moment(post?.date).fromNow()}</p>
           </div>
           {currentUser?.username === post?.username && (<div className="edit">
             <Link to={`/write?edit=2`}>
@@ -52,10 +52,10 @@ const Single = () => {
             <img onClick={handleDelete} src={Delete} alt="" />
           </div>)}
         </div>
-        <h1>{post.title}</h1>
-        {post.desc}
+        <h1>{post?.title}</h1>
+        {post?.desc}
       </div>
-      <Menu cat={post.cat} />
+      <Menu cat={post?.cat} />
     </div>
   )
 }
