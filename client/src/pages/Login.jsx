@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import axios from "axios"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/authContext"
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +11,9 @@ const Login = () => {
 
   const navigate = useNavigate()
 
+  const { login } = useContext(AuthContext)
+
+
   const handleChange = (e) => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -18,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      await axios.post("http://localhost:8080/api/auth/login", inputs, { withCredentials: true })
+      await login(inputs)
       navigate("/")
     } catch (error) {
       console.log(error)
