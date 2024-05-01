@@ -26,6 +26,7 @@ export const getPost = (req, res) => {
 
 export const addPost = (req, res) => {
 	const token = req.cookies.access_token;
+	console.log(req.cookies);
 	if (!token) return res.status(401).json("Not authenticated!");
 
 	jwt.verify(token, "jwtkey", (err, userInfo) => {

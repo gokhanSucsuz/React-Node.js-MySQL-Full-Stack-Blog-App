@@ -47,6 +47,10 @@ export const Home = () => {
     fetchData();
   }, [cat])
 
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
   return (
     <div className="home">
       <div className="posts">
@@ -54,16 +58,16 @@ export const Home = () => {
           <div className="post" key={post.id}>
 
             <div className="img">
-              <img src={post.img} alt="" />
+              <img src={`../uploads/${post.img}`} alt="" />
             </div>
 
             <div className="content">
               <Link className="link" to={`/post/${post.id}`}>
-                <h1>{post.title}</h1>
+                <h1>{getText(post.title)}</h1>
               </Link>
 
               <p>
-                {post.desc}
+                {getText(post.desc)}
               </p>
               <button>Read More</button>
 

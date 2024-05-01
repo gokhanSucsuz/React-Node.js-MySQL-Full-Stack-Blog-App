@@ -52,6 +52,7 @@ export const login = (req, res) => {
 			})
 			.status(200)
 			.json(other);
+		console.log(token);
 	});
 };
 

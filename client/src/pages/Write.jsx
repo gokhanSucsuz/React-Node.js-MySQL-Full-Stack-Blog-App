@@ -6,6 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import moment from "moment";
 
 const Write = () => {
+
   const state = useLocation().state;
   const [value, setValue] = useState(state?.desc || "");
   const [title, setTitle] = useState(state?.title || "");
@@ -30,21 +31,35 @@ const Write = () => {
     const imgUrl = await upload();
 
     try {
-      console.log(state)
       state
         ? await axios.put(`http://localhost:8080/api/posts/${state.id}`, {
           title,
           desc: value,
           cat,
           img: file ? imgUrl : "",
-        })
+        },
+          {
+            withCredentials: true,
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          }
+        )
         : await axios.post(`http://localhost:8080/api/posts`, {
           title,
           desc: value,
           cat,
           img: file ? imgUrl : "",
           date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
-        });
+        },
+          {
+            withCredentials: true,
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+            },
+          });
       navigate("/")
     } catch (err) {
       console.log(err);

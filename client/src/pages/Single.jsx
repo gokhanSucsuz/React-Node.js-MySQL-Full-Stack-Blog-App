@@ -13,7 +13,6 @@ const Single = () => {
   const { currentUser } = useContext(AuthContext)
   const location = useLocation();
   const postId = location.pathname.split("/")[2]
-  console.log(postId)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -35,12 +34,20 @@ const Single = () => {
     }
   }
 
+  const getText = (html) => {
+    const doc = new DOMParser().parseFromString(html, "text/html")
+    return doc.body.textContent
+  }
+
   return (
     <div className="single">
       <div className="content">
-        <img src={post?.img} alt="" />
+        <img src={`../uploads/${post?.img}`} alt="" />
         <div className="user">
-          <img src={post?.img} alt="" />
+          {post?.userImg &&
+            <img src={post.userImg} alt="" />
+          }
+
           <div className="info">
             <span>{post?.username}</span>
             <p>Posted {moment(post?.date).fromNow()}</p>
@@ -52,8 +59,8 @@ const Single = () => {
             <img onClick={handleDelete} src={Delete} alt="" />
           </div>)}
         </div>
-        <h1>{post?.title}</h1>
-        {post?.desc}
+        <h1>{getText(post?.title)}</h1>
+        {getText(post?.desc)}
       </div>
       <Menu cat={post?.cat} />
     </div>
