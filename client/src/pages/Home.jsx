@@ -34,7 +34,6 @@ export const Home = () => {
   const [posts, setPosts] = useState([])
 
   const cat = useLocation().search;
-  console.log(cat)
 
   useEffect(() => {
     const fetchData = async () => {
