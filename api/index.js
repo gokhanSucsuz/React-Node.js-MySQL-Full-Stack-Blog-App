@@ -9,12 +9,20 @@ import cors from "cors";
 const app = express();
 
 app.use(express.json());
-app.use(
-	cors({
-		origin: "https://react-node-js-my-sql-full-stack-blog-app.vercel.app/",
-		credentials: true,
-	})
-);
+
+const corsOptions = {
+	origin: [
+		"https://react-node-js-my-sql-full-stack-blog-app.vercel.app/",
+		"http://localhost:3000",
+	],
+	methods: "GET,PUT,POST,DELETE,OPTIONS",
+	credentials: true,
+	optionsSuccessStatus: 200,
+};
+
+app.options("*", cors());
+app.use(cors(corsOptions));
+
 app.use(cookieParser());
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
