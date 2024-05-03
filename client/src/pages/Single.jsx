@@ -16,7 +16,7 @@ const Single = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`https://books-project-with-mysql-server.vercel.app/api/posts/${postId}`)
+        const res = await axios.get(`https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/posts/${postId}`)
         setPost(res.data)
       } catch (error) {
         console.log(error)
@@ -27,7 +27,7 @@ const Single = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://books-project-with-mysql-server.vercel.app/api/posts/${postId}`)
+      await axios.delete(`https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/posts/${postId}`)
       navigate("/")
     } catch (error) {
       console.log(error)

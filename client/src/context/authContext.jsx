@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
 	);
 	const login = async (inputs) => {
 		const res = await axios.post(
-			"https://books-project-with-mysql-server.vercel.app/api/auth/login",
+			"https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/auth/login",
 			inputs,
 			{
 				withCredentials: true,
@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
 	};
 
 	const logout = async () => {
-		await axios.post("https://books-project-with-mysql-server.vercel.app/api/auth/logout");
+		await axios.post("https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/auth/logout");
 		setCurrentUser(null);
 	};
 

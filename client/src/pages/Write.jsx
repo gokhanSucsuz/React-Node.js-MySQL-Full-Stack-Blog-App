@@ -19,7 +19,7 @@ const Write = () => {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post("https://books-project-with-mysql-server.vercel.app/api/uploads", formData);
+      const res = await axios.post("https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/uploads", formData);
       return res.data;
     } catch (err) {
       console.log(err);
@@ -32,7 +32,7 @@ const Write = () => {
 
     try {
       state
-        ? await axios.put(`https://books-project-with-mysql-server.vercel.app/api/posts/${state.id}`, {
+        ? await axios.put(`https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/posts/${state.id}`, {
           title,
           desc: value,
           cat,
@@ -46,7 +46,7 @@ const Write = () => {
             },
           }
         )
-        : await axios.post(`https://books-project-with-mysql-server.vercel.app/api/posts`, {
+        : await axios.post(`https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/posts`, {
           title,
           desc: value,
           cat,

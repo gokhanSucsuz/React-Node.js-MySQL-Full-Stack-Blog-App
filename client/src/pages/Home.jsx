@@ -38,7 +38,7 @@ export const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/api/posts${cat}`)
+        const res = await axios.get(`https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/posts${cat}`)
         setPosts(res.data)
       } catch (error) {
         console.log(error)

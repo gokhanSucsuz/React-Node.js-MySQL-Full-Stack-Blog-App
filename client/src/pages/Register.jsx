@@ -19,7 +19,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await axios.post("https://books-project-with-mysql-server.vercel.app/api/auth/register", inputs, { withCredentials: true })
+            await axios.post("https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app/api/auth/register", inputs, { withCredentials: true })
             navigate("/login")
         } catch (error) {
             console.log(error)

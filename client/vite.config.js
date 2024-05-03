@@ -8,7 +8,8 @@ export default defineConfig({
 		port: 3000,
 		proxy: {
 			"/api": {
-				target: "http://localhost:8080",
+				target:
+					"https://nodejs-api-react-node-js-my-sql-full-stack-blog-app-ft5n.vercel.app",
 				secure: false,
 			},
 		},
