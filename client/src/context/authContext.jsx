@@ -9,7 +9,7 @@ export const AuthContextProvider = ({ children }) => {
 	);
 	const login = async (inputs) => {
 		const res = await axios.post(
-			"http://localhost:8080/api/auth/login",
+			"https://books-project-with-mysql-server.vercel.app/api/auth/login",
 			inputs,
 			{
 				withCredentials: true,
@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
 	};
 
 	const logout = async () => {
-		await axios.post("http://localhost:8080/api/auth/logout");
+		await axios.post("https://books-project-with-mysql-server.vercel.app/api/auth/logout");
 		setCurrentUser(null);
 	};
 

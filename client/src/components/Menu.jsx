@@ -10,7 +10,7 @@ const Menu = ({ cat }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get(`http://localhost:8080/api/posts/?cat=${cat}`)
+                const res = await axios.get(`https://books-project-with-mysql-server.vercel.app/api/posts/?cat=${cat}`)
                 setPosts(res.data)
             } catch (error) {
                 console.log(error)

@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "https://react-node-js-my-sql-full-stack-blog-app.vercel.app/",
 		credentials: true,
 	})
 );
