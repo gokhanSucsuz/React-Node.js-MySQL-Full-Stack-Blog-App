@@ -18,19 +18,10 @@ const corsOptions = {
 	methods: "GET,PUT,POST,DELETE,OPTIONS",
 	credentials: true,
 	optionsSuccessStatus: 200,
+	accessControlAllowOrigin:
+		"https://react-node-js-my-sql-full-stack-blog-app.vercel.app/",
 };
 
-app.use((req, res, next) => {
-	res.header(
-		"Access-Control-Allow-Origin",
-		"https://react-node-js-my-sql-full-stack-blog-app.vercel.app/"
-	);
-	res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-	res.header("Access-Control-Allow-Headers", "Content-Type");
-	next();
-});
-
-//app.options("*", cors());
 app.use(cors(corsOptions));
 
 app.use(cookieParser());
